@@ -1,0 +1,16 @@
+<style>
+    html {
+        background-color: green;
+    }
+    .basicExample {
+        color: white;
+    }
+</style>
+
+<script>
+    export default () => {
+        <div className="basicExample">
+            Hello World
+        </div>
+    }
+</script>
