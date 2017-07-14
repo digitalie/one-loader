@@ -2,6 +2,7 @@
     html {
         background-color: green;
     }
+
     .basicExample {
         color: white;
     }
@@ -9,7 +10,7 @@
 
 <script>
     export default () => {
-        <div className="basicExample">
+        return <div className="basicExample">
             Hello World
         </div>
     }
