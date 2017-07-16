@@ -22,6 +22,16 @@
   },
   "homepage": "https://github.com/MunGell/ComponentOne#readme",
   "devDependencies": {
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "webpack": "^3.2.0"
+  },
+  "dependencies": {
+    "loader-utils": "^1.1.0",
+    "lodash.defaultsdeep": "^4.6.0",
+    "lodash.foreach": "^4.5.0",
+    "lodash.get": "^4.4.2",
+    "lodash.isobject": "^3.0.2",
+    "lodash.set": "^4.3.2",
+    "posthtml-parser": "^0.2.1"
   }
 }
