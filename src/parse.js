@@ -39,7 +39,7 @@ function verifyTag(node) {
     return node.tag === 'script' || node.tag === 'style';
 }
 
-if (process.env.NODE_ENV === 'testing') {
+if (process.env.NODE_ENV === 'test') {
     module.exports.append = append;
     module.exports.getContent = getContent;
     module.exports.getLanguage = getLanguage;

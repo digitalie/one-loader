@@ -8,10 +8,11 @@
     }
 </style>
 
-<script>
+<script lang="react">
     export default () => {
         return <div className="basicExample">
             Hello World
         </div>
     }
 </script>
+
