@@ -51,3 +51,10 @@ In `ExampleComponent.one`:
 ## Tips
 
 Use `.babelrc` and `postcss.config.js` files to configure respective loaders.
+
+## Roadmap
+
+[] Research: Extract CSS into separate file abilities
+[] Tests: Create tests with Jest
+[] Feature: Scoped styling and CSS Modules
+[] Feature: React Native and SSR support via CSS2JS
