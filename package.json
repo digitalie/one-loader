@@ -1,5 +1,5 @@
 {
-  "name": "componentone",
+  "name": "one-loader",
   "version": "0.0.1",
   "description": "Single-file Component Loader",
   "main": "src/index.js",
@@ -13,7 +13,9 @@
   "keywords": [
     "react",
     "component",
-    "single-file"
+    "single-file",
+    "webpack",
+    "loader"
   ],
   "author": "Shmavon Gazanchyan <sgazanchyan@gmail.com>",
   "license": "MIT",
