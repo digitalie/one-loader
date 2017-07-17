@@ -4,7 +4,7 @@
   "description": "Single-file Component Loader",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/MunGell/ComponentOne#readme",
   "devDependencies": {
-    "jest": "^20.0.4",
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
     "webpack": "^3.2.0"
   },
   "dependencies": {
