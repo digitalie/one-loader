@@ -1,6 +1,6 @@
 module.exports = {
     map: {
-        'css': 'css-loader',
-        '': ''
+        'text/css': 'css-loader',
+        'javascript': ''
     }
 }

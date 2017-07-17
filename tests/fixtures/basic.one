@@ -8,7 +8,7 @@
     }
 </style>
 
-<script lang="react">
+<script>
     export default () => {
         return <div className="basicExample">
             Hello World

@@ -16,8 +16,8 @@ In `webpack.config.js`:
                 loader: 'one-loader',
                 options: {
                     map: {
-                        css: 'style-loader!css-loader!',
-                        react: 'babel-loader!'
+                        'text/css': 'style-loader!css-loader!',
+                        'javascript': 'babel-loader!'
                     }
                 }
             }
@@ -39,7 +39,7 @@ In `ExampleComponent.one`:
     }
 </style>
 
-<script lang="react">
+<script>
     export default () => {
         return <div className="basicExample">
             Hello World

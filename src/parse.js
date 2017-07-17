@@ -11,7 +11,7 @@ module.exports.default = function (content) {
 
     forEach(nodes, (node) => {
         if (isObject(node) && verifyTag(node)) {
-            append(output, [node.tag, getLanguage(node)], getContent(node));
+            append(output, [node.tag, getType(node)], getContent(node));
         }
     });
 
@@ -26,13 +26,13 @@ function getContent(node) {
     return get(node, 'content', []).join('');
 }
 
-function getLanguage(node) {
+function getType(node) {
     const tagLoaders = {
-        script: '',
-        style: 'css'
+        script: 'javascript',
+        style: 'text/css'
     };
 
-    return get(node, 'attrs.lang', tagLoaders[node.tag]);
+    return get(node, 'attrs.type', tagLoaders[node.tag]);
 }
 
 function verifyTag(node) {
@@ -42,6 +42,6 @@ function verifyTag(node) {
 if (process.env.NODE_ENV === 'test') {
     module.exports.append = append;
     module.exports.getContent = getContent;
-    module.exports.getLanguage = getLanguage;
+    module.exports.getType = getType;
     module.exports.verifyTag = verifyTag;
 }

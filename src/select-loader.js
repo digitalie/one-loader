@@ -6,5 +6,5 @@ module.exports = function (content) {
     const parts = parse(content);
     const query = loaderUtils.parseQuery(this.query);
 
-    cb(null, parts[query.tag][query.lang])
+    cb(null, parts[query.tag][query.type])
 }

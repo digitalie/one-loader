@@ -15,9 +15,9 @@ module.exports = function (content) {
     const resource = loaderUtils.getRemainingRequest(this);
 
     forEach(parts, (part, tag) => {
-        forEach(part, (code, lang) => {
-            if (options.map.hasOwnProperty(lang)) {
-                output += getRequire(this, options, tag, lang, resource);
+        forEach(part, (code, type) => {
+            if (options.map.hasOwnProperty(type)) {
+                output += getRequire(this, options, tag, type, resource);
             }
         });
     });
@@ -25,7 +25,7 @@ module.exports = function (content) {
     cb(null, output);
 }
 
-function getRequire(context, options, tag, lang, resource) {
-    let url = loaderUtils.stringifyRequest(context, '!' + options.map[lang] + require.resolve('./select-loader.js') + '?tag=' + tag + '&lang=' + lang + '!' + resource)
+function getRequire(context, options, tag, type, resource) {
+    let url = loaderUtils.stringifyRequest(context, '!' + options.map[type] + require.resolve('./select-loader.js') + '?tag=' + tag + '&type=' + type + '!' + resource)
     return `require(${url});\r\n`;
 }
