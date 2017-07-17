@@ -5,6 +5,10 @@ const loaderUtils = require('loader-utils');
 const parse = require('./parse').default;
 const defaultOptions = require('./options');
 
+/**
+ * ComponentOne Loader
+ * @param {string} content
+ */
 module.exports = function (content) {
     let output = '';
 
@@ -25,6 +29,15 @@ module.exports = function (content) {
     cb(null, output);
 }
 
+/**
+ * Return full require() statement for given resource and type
+ * @param {object} context
+ * @param {object} options
+ * @param {string} tag
+ * @param {string} type
+ * @param {string} resource
+ * @returns {string}
+ */
 function getRequire(context, options, tag, type, resource) {
     let url = loaderUtils.stringifyRequest(context, '!' + options.map[type] + require.resolve('./select-loader.js') + '?tag=' + tag + '&type=' + type + '!' + resource)
     return `require(${url});\r\n`;

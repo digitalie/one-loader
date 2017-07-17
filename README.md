@@ -3,7 +3,13 @@
 A webpack loader to enable single-file React components.
 Inspired by `vue-loader`.
 
-## Usage
+## Installation
+
+```bash
+$ npm i one-loader
+```
+
+## Example
 
 In `webpack.config.js`:
 
