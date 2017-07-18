@@ -6,7 +6,5 @@ const webpack = require('webpack')
 const expect = require('chai').expect;
 
 describe('one-loader', () => {
-    it('test', done => {
-        done();
-    })
+
 });
