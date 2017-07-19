@@ -41,7 +41,7 @@ function append(object, path, value) {
  * @returns {string}
  */
 function getContent(node) {
-    return get(node, 'content', []).join('');
+    return get(node, 'content', []).join(' ');
 }
 
 /**
