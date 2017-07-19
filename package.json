@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MunGell/ComponentOne.git"
+    "url": "git+https://github.com/digitalie/one-loader.git"
   },
   "keywords": [
     "react",
@@ -20,9 +20,9 @@
   "author": "Shmavon Gazanchyan <sgazanchyan@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MunGell/ComponentOne/issues"
+    "url": "https://github.com/digitalie/one-loader/issues"
   },
-  "homepage": "https://github.com/MunGell/ComponentOne#readme",
+  "homepage": "https://github.com/digitalie/one-loader#readme",
   "devDependencies": {
     "chai": "^4.1.0",
     "mocha": "^3.4.2",
