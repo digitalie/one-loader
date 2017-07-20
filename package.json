@@ -8,7 +8,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
     "travis:coverage": "npm run test:coverage -- --runInBand",
-    "travis:test": "npm run test -- --runInBand",
+    "travis:test": "npm run test -- --runInBand"
   },
   "repository": {
     "type": "git",
