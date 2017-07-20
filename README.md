@@ -1,4 +1,13 @@
-# ComponentOne
+[![npm][npm]][npm-url]
+
+<div align="center">
+  <a href="https://github.com/webpack/webpack">
+    <img width="200" height="200"
+      src="https://webpack.js.org/assets/icon-square-big.svg">
+  </a>
+</div>
+
+# One Loader
 
 A webpack loader to enable single-file React components.
 Inspired by `vue-loader`.
@@ -64,3 +73,10 @@ Use `.babelrc` and `postcss.config.js` files to configure respective loaders.
 - [ ] Tests: Create tests
 - [ ] Feature: Scoped styling and CSS Modules
 - [ ] Feature: React Native and SSR support via CSS2JS
+
+## License
+
+MIT
+
+[npm]: https://img.shields.io/npm/v/one-loader.svg
+[npm-url]: https://npmjs.com/package/one-loader
