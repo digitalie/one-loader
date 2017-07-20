@@ -1,4 +1,5 @@
 [![npm][npm]][npm-url]
+[![build][build]][build-url]
 
 <div align="center">
   <a href="https://github.com/webpack/webpack">
@@ -80,3 +81,6 @@ MIT
 
 [npm]: https://img.shields.io/npm/v/one-loader.svg
 [npm-url]: https://npmjs.com/package/one-loader
+
+[build]: https://travis-ci.org/digitalie/one-loader.svg?branch=master
+[build-url]: https://travis-ci.org/digitalie/one-loader
