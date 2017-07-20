@@ -4,7 +4,10 @@
   "description": "Single-file Component Loader",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha tests"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
+    "travis:coverage": "npm run test:coverage -- --runInBand"
   },
   "repository": {
     "type": "git",
@@ -24,9 +27,8 @@
   },
   "homepage": "https://github.com/digitalie/one-loader#readme",
   "devDependencies": {
-    "chai": "^4.1.0",
-    "mocha": "^3.4.2",
-    "webpack": "^3.2.0"
+    "webpack": "^3.2.0",
+    "jest": "^20.0.4"
   },
   "dependencies": {
     "loader-utils": "^1.1.0",

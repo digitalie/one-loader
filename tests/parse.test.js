@@ -1,17 +1,16 @@
 process.env.NODE_ENV = 'test';
 
-const expect = require('chai').expect;
 const parse = require('../src/parse');
 
 /**
  * parse module
  */
 describe('parse', () => {
-    /**
+    /**npm i jest
      * default function
      */
     describe('default', () => {
-        it('returns code type structure', done => {
+        it('returns code type structure', () => {
             const code = `
                 <style>
                     html {
@@ -24,10 +23,9 @@ describe('parse', () => {
             `;
             const actual = parse.default(code);
 
-            expect(actual).to.have.property('style');
-            expect(actual.style).to.have.property('text/css');
-            expect(actual).to.have.nested.property('script.javascript');
-            done();
+            expect(actual).toHaveProperty('style');
+            expect(actual.style).toHaveProperty('text/css');
+            expect(actual).toHaveProperty('script.javascript');
         });
     });
 
@@ -35,7 +33,7 @@ describe('parse', () => {
      * append function
      */
     describe('append', () => {
-        it('creates property and sets value when property does not exist', done => {
+        it('creates property and sets value when property does not exist', () => {
             let object = {};
             const expectedObject = {
                 test1: {
@@ -43,10 +41,9 @@ describe('parse', () => {
                 }
             }
             parse.append(object, ['test1', 'test2'], 'test3');
-            expect(object).to.eql(expectedObject);
-            done();
+            expect(object).toEqual(expectedObject);
         });
-        it('appends value to existing property', done => {
+        it('appends value to existing property', () => {
             let object = {
                 test1: {
                     test2: "\r\ntest3"
@@ -58,8 +55,7 @@ describe('parse', () => {
                 }
             }
             parse.append(object, ['test1', 'test2'], 'test4');
-            expect(object).to.eql(expectedObject);
-            done();
+            expect(object).toEqual(expectedObject);
         });
     });
 
@@ -67,7 +63,7 @@ describe('parse', () => {
      * getContent function
      */
     describe('getContent', () => {
-        it('returns content of input node', done => {
+        it('returns content of input node', () => {
             const node = {
                 content: ['test1']
             };
@@ -76,16 +72,14 @@ describe('parse', () => {
                 content: ['test1', 'test2']
             };
 
-            expect(parse.getContent(node)).to.eql('test1');
-            expect(parse.getContent(multiNode)).to.eql('test1 test2');
-            done();
+            expect(parse.getContent(node)).toEqual('test1');
+            expect(parse.getContent(multiNode)).toEqual('test1 test2');
         });
 
-        it('returns empty content by default', done => {
+        it('returns empty content by default', () => {
             const node = {};
 
-            expect(parse.getContent(node)).to.eql('');
-            done();
+            expect(parse.getContent(node)).toEqual('');
         });
     });
 
@@ -93,21 +87,19 @@ describe('parse', () => {
      * getType function
      */
     describe('getType', () => {
-        it('returns code type from type attribute', done => {
+        it('returns code type from type attribute', () => {
             const node = {
                 attrs: {
                     type: 'test1'
                 }
             };
-            expect(parse.getType(node)).to.eql('test1');
-            done();
+            expect(parse.getType(node)).toEqual('test1');
         });
-        it('returns code type based on wrapping tag', done => {
+        it('returns code type based on wrapping tag', () => {
             const node = {
                 tag: 'script'
             };
-            expect(parse.getType(node)).to.eql('javascript');
-            done();
+            expect(parse.getType(node)).toEqual('javascript');
         });
     });
 
@@ -115,7 +107,7 @@ describe('parse', () => {
      * verifyTag function
      */
     describe('verifyTag', () => {
-        it('returns true for script and style tags', done => {
+        it('returns true for script and style tags', () => {
             const scriptNode = {
                 tag: 'script'
             };
@@ -125,10 +117,9 @@ describe('parse', () => {
             const divNode = {
                 tag: 'div'
             }
-            expect(parse.verifyTag(scriptNode)).to.be.true;
-            expect(parse.verifyTag(styleNode)).to.be.true;
-            expect(parse.verifyTag(divNode)).to.be.false;
-            done();
+            expect(parse.verifyTag(scriptNode)).toBe(true);
+            expect(parse.verifyTag(styleNode)).toBe(true);
+            expect(parse.verifyTag(divNode)).toBe(false);
         });
     });
 });
