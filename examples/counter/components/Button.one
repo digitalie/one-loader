@@ -1,0 +1,33 @@
+<script>
+    import React from 'react';
+
+    export default ({type, onClick}) => {
+        return <button className="Button" onClick={onClick}>
+            {type}
+        </button>
+    };
+</script>
+
+<style>
+    .Button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+
+        border: 0;
+        border-radius: 50%;
+
+        background: #0074D9;
+        color: #ffffff;
+
+        line-height: 100px;
+        font-family: 'PT Sans', sans-serif;
+        font-size: 60px;
+    }
+
+    .Button:focus {
+        outline: 0;
+    }
+</style>

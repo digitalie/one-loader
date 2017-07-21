@@ -1,0 +1,19 @@
+<script>
+    import React from 'react';
+
+    export default (props) => {
+        return <div className="Display">
+            {props.counter}
+        </div>
+    }
+</script>
+
+<style>
+    .Display {
+        min-width: 100px;
+        height: 100px;
+        font-size: 60px;
+        line-height: 100px;
+        text-align: center;
+    }
+</style>

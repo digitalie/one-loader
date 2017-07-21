@@ -1,0 +1,45 @@
+<script>
+    import React from 'react';
+    import Display from './Display.one';
+    import Button from './Button.one';
+
+    export default class extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                value: 0
+            };
+
+            this.minusClick = this.minusClick.bind(this);
+            this.plusClick = this.plusClick.bind(this);
+        }
+
+        minusClick() {
+            this.setState(prevState => ({
+                value: prevState.value - 1
+            }));
+        }
+
+        plusClick() {
+            this.setState(prevState => ({
+                value: prevState.value + 1
+            }));
+        }
+
+        render() {
+            return <div className="App">
+                <Button type="-" onClick={this.minusClick}/>
+                <Display counter={this.state.value}/>
+                <Button type="+" onClick={this.plusClick}/>
+            </div>;
+        }
+    }
+</script>
+
+<style>
+    .App {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+    }
+</style>
