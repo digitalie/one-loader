@@ -2,7 +2,7 @@
   "name": "one-loader",
   "version": "0.1.0",
   "description": "Single-file Component Loader",
-  "main": "src/index.js",
+  "main": "src/index.html",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/digitalie/one-loader#readme",
   "devDependencies": {
-    "webpack": "^3.2.0",
+    "webpack": "^3.3.0",
     "jest": "^20.0.4"
   },
   "dependencies": {
