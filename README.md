@@ -32,8 +32,8 @@ In `webpack.config.js`:
                 loader: 'one-loader',
                 options: {
                     map: {
-                        'text/css': 'style-loader!css-loader!',
-                        'javascript': 'babel-loader!'
+                        'text/css': 'style-loader!css-loader',
+                        'javascript': 'babel-loader'
                     }
                 }
             }

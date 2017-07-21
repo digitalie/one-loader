@@ -39,7 +39,7 @@ module.exports = function (content) {
  * @returns {string}
  */
 function getRequire(context, options, tag, type, resource) {
-    const url = loaderUtils.stringifyRequest(context, '!' + options.map[type] + require.resolve('./select-loader.js') + '?tag=' + tag + '&type=' + type + '!' + resource)
+    const url = loaderUtils.stringifyRequest(context, '!' + options.map[type].replace(/!$/, '') + '!' + require.resolve('./select-loader.js') + '?tag=' + tag + '&type=' + type + '!' + resource)
     const prefix = tag === 'script' ? 'module.exports = ' : '';
     return `${prefix}require(${url});\r\n`;
 }
