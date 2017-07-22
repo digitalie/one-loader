@@ -14,7 +14,7 @@ module.exports = {
                 options: {
                     map: {
                         'text/css': 'style-loader!css-loader',
-                        javascript: 'babel-loader'
+                        'javascript': 'babel-loader'
                     }
                 }
             },
