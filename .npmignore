@@ -1,0 +1,4 @@
+coverage
+examples
+tests
+.travis.yml
