@@ -70,10 +70,11 @@ Use `.babelrc` and `postcss.config.js` files to configure respective loaders.
 
 ## Roadmap
 
-- [ ] Research: Extract CSS into separate file abilities
-- [ ] Research: Scoped styling with css-loader
-- [ ] Research: Styling with CSS Modules
-- [ ] Feature: React Native and SSR support via CSS2JS
+- [ ] Extract CSS into separate file abilities
+- [ ] Scoped styling with css-loader
+- [ ] Styling with CSS Modules
+- [ ] Live Reloading
+- [ ] React Native and SSR support via CSS2JS
 
 ## License
 

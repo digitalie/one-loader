@@ -1,0 +1,35 @@
+<script>
+    import React from 'react'
+    import Sidebar from './Sidebar.one'
+    import AddTodo from '../containers/AddTodo'
+    import VisibleTodoList from '../containers/VisibleTodoList'
+
+    const App = () => (
+            <div className="App">
+                <Sidebar/>
+                <div className="App_content">
+                    <AddTodo/>
+                    <VisibleTodoList/>
+                </div>
+            </div>
+    )
+
+    export default App
+</script>
+
+<style type="text/scss">
+    .App {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        width: 100%;
+        height: 100%;
+
+        &_content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 20px 40px;
+        }
+    }
+</style>

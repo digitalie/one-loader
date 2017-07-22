@@ -1,0 +1,36 @@
+<script>
+    import React from 'react'
+    import FilterLink from '../containers/FilterLink'
+
+    const Sidebar = () => (
+            <ul className="Sidebar">
+                <li className="Sidebar_filter">
+                    <FilterLink filter="SHOW_ALL">
+                        All
+                    </FilterLink>
+                </li>
+                <li className="Sidebar_filter">
+                    <FilterLink filter="SHOW_ACTIVE">
+                        Active
+                    </FilterLink>
+                </li>
+                <li className="Sidebar_filter">
+                    <FilterLink filter="SHOW_COMPLETED">
+                        Completed
+                    </FilterLink>
+                </li>
+            </ul>
+    )
+
+    export default Sidebar
+</script>
+
+<style type="text/scss">
+    .Sidebar {
+        height: 100%;
+        margin: 0;
+        padding: 20px 0;
+        background: #222628;
+        list-style: none;
+    }
+</style>

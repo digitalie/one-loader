@@ -1,0 +1,41 @@
+<script>
+    import React from 'react'
+
+    let AddTodo = ({onSubmit}) => {
+        let input
+
+        return (
+                <div className="AddTodo">
+                    <form onSubmit={e => {
+                        e.preventDefault()
+                        if (!input.value.trim()) {
+                            return
+                        }
+                        onSubmit(input.value);
+                        input.value = ''
+                    }}>
+                        <input ref={node => {
+                            input = node
+                        }} placeholder="Add a task..."/>
+                    </form>
+                </div>
+        )
+    }
+
+    export default AddTodo
+</script>
+
+<style type="text/scss">
+    .AddTodo {
+        width: 100%;
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            font-size: 120%;
+        }
+    }
+</style>
