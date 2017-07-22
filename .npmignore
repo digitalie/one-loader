@@ -2,3 +2,4 @@ coverage
 examples
 tests
 .travis.yml
+.idea
