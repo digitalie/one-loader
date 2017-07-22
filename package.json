@@ -2,7 +2,7 @@
   "name": "one-loader",
   "version": "0.2.2",
   "description": "Single-file Component Loader",
-  "main": "src/index.html",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
