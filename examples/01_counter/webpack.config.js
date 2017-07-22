@@ -10,7 +10,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.one$/,
-                loader: '../../src',
+                loader: 'one-loader',
                 options: {
                     map: {
                         'text/css': 'style-loader!css-loader',

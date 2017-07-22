@@ -13,7 +13,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.one$/,
-                loader: '../../src',
+                loader: 'one-loader',
                 options: {
                     map: {
                         'text/scss': 'style-loader!css-loader!sass-loader',
