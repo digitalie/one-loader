@@ -4,7 +4,7 @@
   "description": "Single-file Component Loader",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest tests",
     "test:watch": "jest --watch",
     "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
     "travis:coverage": "npm run test:coverage -- --runInBand",
