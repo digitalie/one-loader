@@ -7,6 +7,7 @@ const defaultOptions = require('./options');
 
 /**
  * ComponentOne Loader
+ *
  * @param {string} content
  */
 module.exports = function (content) {
@@ -31,6 +32,7 @@ module.exports = function (content) {
 
 /**
  * Return full require() statement for given resource and type
+ *
  * @param {object} context
  * @param {object} options
  * @param {string} tag
@@ -39,7 +41,33 @@ module.exports = function (content) {
  * @returns {string}
  */
 function getRequire(context, options, tag, type, resource) {
-    const url = loaderUtils.stringifyRequest(context, '!' + options.map[type].replace(/!$/, '') + '!' + require.resolve('./select-loader.js') + '?tag=' + tag + '&type=' + type + '!' + resource)
+    const loaders = normalizeLoaders(options.map[type]);
+    const selectLoader = require.resolve('./select-loader.js');
+    const url = loaderUtils.stringifyRequest(context, `!${loaders}!${selectLoader}?tag=${tag}&type=${type}!${resource}`)
     const prefix = tag === 'script' ? 'module.exports = ' : '';
     return `${prefix}require(${url});\r\n`;
+}
+
+/**
+ * Decides whether loaders need to be stringified
+ * @param {array} loaders
+ * @returns {string}
+ */
+function normalizeLoaders(loaders) {
+    return typeof loaders === 'string' ? loaders.replace(/!$/, '') : stringifyLoaders(loaders);
+}
+
+/**
+ * Compiles array of loader objects into a request string
+ * together with options
+ *
+ * @param {array} loaders
+ * @returns {string}
+ */
+function stringifyLoaders(loaders) {
+    return loaders.map(function (obj) {
+        return obj && typeof obj === 'object' && typeof obj.loader === 'string'
+            ? obj.loader + (obj.options ? '?' + JSON.stringify(obj.options) : '')
+            : obj
+    }).join('!')
 }
