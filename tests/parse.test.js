@@ -6,7 +6,7 @@ const parse = require('../src/parse');
  * parse module
  */
 describe('parse', () => {
-    /**npm i jest
+    /**
      * default function
      */
     describe('default', () => {

@@ -50,7 +50,7 @@ function getRequire(context, options, tag, type, resource) {
 
 /**
  * Decides whether loaders need to be stringified
- * @param {array} loaders
+ * @param {array|string} loaders
  * @returns {string}
  */
 function normalizeLoaders(loaders) {
@@ -70,4 +70,13 @@ function stringifyLoaders(loaders) {
             ? obj.loader + (obj.options ? '?' + JSON.stringify(obj.options) : '')
             : obj
     }).join('!')
+}
+
+/*
+ * Export private functions for testing purposes
+ */
+if (process.env.NODE_ENV === 'test') {
+    module.exports.getRequire = getRequire;
+    module.exports.normalizeLoaders = normalizeLoaders;
+    module.exports.stringifyLoaders = stringifyLoaders;
 }
