@@ -16,7 +16,7 @@ module.exports.default = function (content) {
     const nodes = parser(content);
 
     forEach(nodes, (node) => {
-        if (isObject(node) && verifyTag(node)) {
+        if (isObject(node) && isCorrectTag(node)) {
             append(output, [node.tag, getType(node)], getContent(node));
         }
     });
@@ -64,7 +64,7 @@ function getType(node) {
  * @param {object} node
  * @returns {boolean}
  */
-function verifyTag(node) {
+function isCorrectTag(node) {
     return node.tag === 'script' || node.tag === 'style';
 }
 
@@ -75,5 +75,5 @@ if (process.env.NODE_ENV === 'test') {
     module.exports.append = append;
     module.exports.getContent = getContent;
     module.exports.getType = getType;
-    module.exports.verifyTag = verifyTag;
+    module.exports.isCorrectTag = isCorrectTag;
 }

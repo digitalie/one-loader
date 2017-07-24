@@ -104,9 +104,9 @@ describe('parse', () => {
     });
 
     /**
-     * verifyTag function
+     * isCorrectTag function
      */
-    describe('verifyTag', () => {
+    describe('isCorrectTag', () => {
         it('returns true for script and style tags', () => {
             const scriptNode = {
                 tag: 'script'
@@ -117,9 +117,9 @@ describe('parse', () => {
             const divNode = {
                 tag: 'div'
             }
-            expect(parse.verifyTag(scriptNode)).toBe(true);
-            expect(parse.verifyTag(styleNode)).toBe(true);
-            expect(parse.verifyTag(divNode)).toBe(false);
+            expect(parse.isCorrectTag(scriptNode)).toBe(true);
+            expect(parse.isCorrectTag(styleNode)).toBe(true);
+            expect(parse.isCorrectTag(divNode)).toBe(false);
         });
     });
 });
