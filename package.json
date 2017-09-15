@@ -1,6 +1,6 @@
 {
   "name": "one-loader",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Single-file Component Loader",
   "main": "src/index.js",
   "scripts": {
