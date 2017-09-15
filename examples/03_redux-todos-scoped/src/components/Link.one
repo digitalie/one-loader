@@ -1,0 +1,47 @@
+<script>
+    import React from 'react'
+    import PropTypes from 'prop-types'
+
+    const Link = ({active, children, onClick}) => {
+        if (active) {
+            return <div className={$style.LinkActive}>{children}</div>
+        }
+
+        return (
+            <a className={$style.Link} href="#"
+               onClick={e => {
+                   e.preventDefault()
+                   onClick()
+               }}
+            >
+                {children}
+            </a>
+        )
+    }
+
+    Link.propTypes = {
+        active: PropTypes.bool.isRequired,
+        children: PropTypes.node.isRequired,
+        onClick: PropTypes.func.isRequired
+    }
+
+    export default Link
+</script>
+
+<style type="text/scss">
+    .Link {
+        display: block;
+        padding: 15px 40px;
+        width: 100%;
+        height: 100%;
+        color: #c4c4c4;
+        text-decoration: none;
+        box-sizing: border-box;
+
+        &Active {
+            @extend .Link;
+            color: #ffffff;
+            background: #d3353e;
+        }
+    }
+</style>

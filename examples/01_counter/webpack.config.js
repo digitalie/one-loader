@@ -13,7 +13,7 @@ module.exports = {
                 loader: 'one-loader',
                 options: {
                     map: {
-                        'text/css': 'style-loader!css-loader',
+                        'text/css': ['style-loader', 'css-loader'],
                         'javascript': 'babel-loader'
                     }
                 }
