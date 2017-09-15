@@ -94,8 +94,6 @@ Make sure you map appropriate loaders to these types, otherwise `one-loader` wil
 
 ## Roadmap
 
-- [ ] Scoped styling with css-loader
-- [ ] Styling with CSS Modules
 - [ ] Live Reloading
 - [ ] React Native and SSR support via CSS2JS
 
