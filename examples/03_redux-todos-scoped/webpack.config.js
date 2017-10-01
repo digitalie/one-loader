@@ -1,5 +1,5 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractSass = new ExtractTextPlugin('app.css');
+const extractCss = new ExtractTextPlugin('app.css');
 
 module.exports = {
     entry: {
@@ -16,7 +16,7 @@ module.exports = {
                 loader: 'one-loader',
                 options: {
                     map: {
-                        'text/scss': extractSass.extract('css-loader?modules=true!sass-loader'),
+                        'text/scss': extractCss.extract('css-loader?modules=true!sass-loader'),
                         'javascript': 'babel-loader'
                     }
                 }
@@ -28,6 +28,6 @@ module.exports = {
         ]
     },
     plugins: [
-        extractSass
+        extractCss
     ]
 };

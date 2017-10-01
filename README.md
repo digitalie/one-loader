@@ -13,10 +13,16 @@
 A webpack loader to enable single-file React components.
 Inspired by `vue-loader`.
 
+## Features
+
+* CSS and JavaScript code co-located in a single `.one` file
+* Configurable loaders for JavaScript and CSS
+* Support for scoped styles through CSS Modules (using `css-loader`)
+
 ## Installation
 
 ```bash
-$ npm i one-loader
+$ npm i --save-dev one-loader
 ```
 
 ## Example
@@ -64,7 +70,11 @@ In `ExampleComponent.one`:
 </script>
 ```
 
-More examples are available in [examples](examples) directory.
+More examples are available in [examples](examples) directory:
+
+* [Simple Counter](examples/01_counter)
+* [Redux Todo List with extracted CSS file](examples/02_redux-todos)
+* [Redux Todo List with scoped CSS](examples/03_redux-todos-scoped)
 
 ## Configuration
 
@@ -91,11 +101,6 @@ To assign custom types to `<style>` and `<script>` tags use property `type`:
 In the example above I assigned custom types to these style and script tags.
 There are not restrictions on naming, so any string will work, however it is recommended to use descriptive values.
 Make sure you map appropriate loaders to these types, otherwise `one-loader` will ignore them.
-
-## Roadmap
-
-- [ ] Live Reloading
-- [ ] React Native and SSR support via CSS2JS
 
 ## License
 
