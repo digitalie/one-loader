@@ -15,7 +15,7 @@ Inspired by `vue-loader`.
 
 ## Features
 
-* CSS and JavaScript code co-located in a single `.one` file
+* CSS and JavaScript code co-located in a single `.one` file (extension is configurable)
 * Configurable loaders for JavaScript and CSS
 * Support for scoped styles through CSS Modules (using `css-loader`)
 
@@ -78,14 +78,12 @@ More examples are available in [examples](examples) directory:
 
 ## Configuration
 
-In the example above we passed `map` object as an option to `one-loader`.
-This object it responsible for assigning loaders to code types in your single-file components.
+The `map` object in `one-loader` options it responsible for assigning loaders to code types in your single-file components.
 
-By default `one-loader` will assume that `<style>` tag contains code of type `text/css`
-and `<script>` tag contains code of `javascript`. This default values are defined in `options.js` in this repository.
+If no mapping provided `<style>` contents will be processed with `css-loader` and `<script>` contents will remain unchanged.
+These default values are defined in `options.js` file.
 
-You can easily override or add more types to the map in case.
-To assign custom types to `<style>` and `<script>` tags use property `type`:
+`type` property can be used to assign custom types to `<style>` and `<script>` tags:
 
 ```html
 <style type="text/less">
@@ -98,9 +96,7 @@ To assign custom types to `<style>` and `<script>` tags use property `type`:
 </script>
 ```
 
-In the example above I assigned custom types to these style and script tags.
-There are not restrictions on naming, so any string will work, however it is recommended to use descriptive values.
-Make sure you map appropriate loaders to these types, otherwise `one-loader` will ignore them.
+There are not restrictions on type naming, so any string will work, however it is recommended to use descriptive values.
 
 ## License
 
