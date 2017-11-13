@@ -38,7 +38,7 @@ In `webpack.config.js`:
                 loader: 'one-loader',
                 options: {
                     map: {
-                        'text/css': 'style-loader!css-loader',
+                        'text/css': ['style-loader', 'css-loader'],
                         'javascript': 'babel-loader'
                     }
                 }
@@ -96,7 +96,56 @@ These default values are defined in `options.js` file.
 </script>
 ```
 
-There are not restrictions on type naming, so any string will work, however it is recommended to use descriptive values.
+There are not restrictions on type naming, so any string will work.
+However it is recommended to use descriptive values.
+
+## Known issues
+
+The internal architecture of the loader requires passing options object to sub-loaders through a `require` string.
+This is currently causing issues when defining `map` object loaders in string with `!` separator.
+It is recommended to use array syntax to define mapped loaders.
+
+This will work:
+
+```javascript
+{
+    module: {
+        loaders: [
+            {
+                test: /\.one$/,
+                loader: 'one-loader',
+                options: {
+                    map: {
+                        'text/css': ['style-loader', 'css-loader'],
+                        'javascript': 'babel-loader'
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+And this will NOT work:
+
+```javascript
+{
+    module: {
+        loaders: [
+            {
+                test: /\.one$/,
+                loader: 'one-loader',
+                options: {
+                    map: {
+                        'text/css': 'style-loader!css-loader',
+                        'javascript': 'babel-loader'
+                    }
+                }
+            }
+        ]
+    }
+}
+```
 
 ## License
 
