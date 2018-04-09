@@ -78,12 +78,12 @@ More examples are available in [examples](examples) directory:
 
 ## Configuration
 
-The `map` object in `one-loader` options it responsible for assigning loaders to code types in your single-file components.
+The `map` object in `one-loader` options is responsible for assigning loaders to code types in your single-file components.
 
-If no mapping provided `<style>` contents will be processed with `css-loader` and `<script>` contents will remain unchanged.
+If no mapping is provided `<style>` contents will be processed with `css-loader` and `<script>` contents will remain unchanged.
 These default values are defined in `options.js` file.
 
-`type` property can be used to assign custom types to `<style>` and `<script>` tags:
+The `type` property can be used to assign custom types to `<style>` and `<script>` tags:
 
 ```html
 <style type="text/less">
@@ -96,14 +96,34 @@ These default values are defined in `options.js` file.
 </script>
 ```
 
-There are not restrictions on type naming, so any string will work.
-However it is recommended to use descriptive values.
+There are no restrictions on type naming, so any string will work, however descriptive values are recommended.
 
 ## Known issues
 
-The internal architecture of the loader requires passing options object to sub-loaders through a `require` string.
-This is currently causing issues when defining `map` object loaders in string with `!` separator.
-It is recommended to use array syntax to define mapped loaders.
+The internal architecture of the loader requires passing the options object to sub-loaders through a `require` string.
+This is currently causing issues when defining `map` object loaders in strings with a `!` separator.
+Thus array syntax is recommended for defining mapped loaders.
+
+This will **NOT** work:
+
+```javascript
+{
+    module: {
+        loaders: [
+            {
+                test: /\.one$/,
+                loader: 'one-loader',
+                options: {
+                    map: {
+                        'text/css': 'style-loader!css-loader',
+                        'javascript': 'babel-loader'
+                    }
+                }
+            }
+        ]
+    }
+}
+```
 
 This will work:
 
@@ -126,26 +146,6 @@ This will work:
 }
 ```
 
-And this will NOT work:
-
-```javascript
-{
-    module: {
-        loaders: [
-            {
-                test: /\.one$/,
-                loader: 'one-loader',
-                options: {
-                    map: {
-                        'text/css': 'style-loader!css-loader',
-                        'javascript': 'babel-loader'
-                    }
-                }
-            }
-        ]
-    }
-}
-```
 
 ## License
 
