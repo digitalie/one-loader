@@ -28,8 +28,7 @@
   },
   "homepage": "https://github.com/digitalie/one-loader#readme",
   "devDependencies": {
-    "webpack": "^3.3.0",
-    "jest": "^20.0.4"
+    "jest": "^23.1.0"
   },
   "dependencies": {
     "loader-utils": "^1.1.0",
@@ -38,6 +37,6 @@
     "lodash.get": "^4.4.2",
     "lodash.isobject": "^3.0.2",
     "lodash.set": "^4.3.2",
-    "posthtml-parser": "^0.2.1"
+    "posthtml-parser": "^0.4.1"
   }
 }
