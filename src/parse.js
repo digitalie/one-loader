@@ -1,7 +1,5 @@
 const get = require('lodash.get');
 const set = require('lodash.set');
-const isObject = require('lodash.isobject');
-const forEach = require('lodash.foreach');
 const parser = require('posthtml-parser');
 
 /**
@@ -15,8 +13,8 @@ module.exports.default = function (content) {
 
     const nodes = parser(content);
 
-    forEach(nodes, (node) => {
-        if (isObject(node) && isCorrectTag(node)) {
+    nodes.forEach((node) => {
+        if (typeof node == 'object' && isCorrectTag(node)) {
             append(output, [node.tag, getType(node)], getContent(node));
         }
     });
@@ -41,7 +39,7 @@ function append(object, path, value) {
  * @returns {string}
  */
 function getContent(node) {
-    return get(node, 'content', []).join(' ');
+    return (node.content || []).join(' ');
 }
 
 /**
@@ -55,7 +53,10 @@ function getType(node) {
         style: 'text/css'
     };
 
-    return get(node, 'attrs.type', tagLoaders[node.tag]);
+    if(typeof node.attrs == 'undefined' || typeof node.attrs.type == 'undefined')
+        return tagLoaders[node.tag];
+
+    return node.attrs.type;
 }
 
 /**
