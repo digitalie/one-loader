@@ -7,16 +7,16 @@ matrix:
   fast_finish: true
   include:
     - os: linux
-      node_js: '6'
-      env: NODE_ENV="test" JOB_PART=test
-    - os: linux
       node_js: '8'
       env: NODE_ENV="test" JOB_PART=test
     - os: linux
-      node_js: '8'
+      node_js: '12'
+      env: NODE_ENV="test" JOB_PART=test
+    - os: linux
+      node_js: '12'
       env: NODE_ENV="test" JOB_PART=coverage
 before_install:
-  - 'if [[ `npm -v` != 5* ]]; then npm i -g npm@^5.0.0; fi'
+  - 'if [[ `npm -v` != 5* ]]; then npm i -g npm@^6.0.0; fi'
   - nvm --version
   - node --version
   - npm --version
