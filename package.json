@@ -28,15 +28,15 @@
   },
   "homepage": "https://github.com/digitalie/one-loader#readme",
   "devDependencies": {
-    "jest": "^23.1.0"
+    "jest": "^26.4.1"
   },
   "dependencies": {
-    "loader-utils": "^1.1.0",
-    "lodash.defaultsdeep": "^4.6.0",
+    "loader-utils": "^2.0.0",
+    "lodash.defaultsdeep": "^4.6.1",
     "lodash.foreach": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.isobject": "^3.0.2",
     "lodash.set": "^4.3.2",
-    "posthtml-parser": "^0.4.1"
+    "posthtml-parser": "^0.4.2"
   }
 }
