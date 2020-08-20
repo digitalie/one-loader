@@ -7,7 +7,7 @@ matrix:
   fast_finish: true
   include:
     - os: linux
-      node_js: '8'
+      node_js: '10'
       env: NODE_ENV="test" JOB_PART=test
     - os: linux
       node_js: '12'
