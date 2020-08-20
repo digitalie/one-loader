@@ -1,5 +1,4 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractCss = new ExtractTextPlugin('app.css');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
@@ -16,7 +15,7 @@ module.exports = {
                 loader: 'one-loader',
                 options: {
                     map: {
-                        'text/scss': extractCss.extract('css-loader!sass-loader'),
+                        'text/scss': [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
                         'javascript': 'babel-loader'
                     }
                 }
@@ -28,6 +27,6 @@ module.exports = {
         ]
     },
     plugins: [
-        extractCss
+        new MiniCssExtractPlugin({ filename: 'app.css' })
     ]
 };
