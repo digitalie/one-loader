@@ -1,28 +1,28 @@
 {
-  "name": "one-loader-examples-redux-todos",
+  "name": "one-loader-examples-redux-todos-scoped",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "prop-types": "^15.6.1",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.2",
-    "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.11",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "node-sass": "^4.9.0",
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.1",
+    "mini-css-extract-plugin": "^0.10.0",
+    "node-sass": "^4.14.1",
     "one-loader": "github:digitalie/one-loader",
-    "sass-loader": "^7.0.3",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.3"
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "build": "webpack --mode=development",
