@@ -1,5 +1,3 @@
-const get = require('lodash.get');
-const set = require('lodash.set');
 const parser = require('posthtml-parser');
 
 /**
@@ -9,28 +7,19 @@ const parser = require('posthtml-parser');
  * @returns {object}
  */
 module.exports.default = function (content) {
-    let output = {};
-
+    let output = [];
     const nodes = parser(content);
-
-    nodes.forEach((node) => {
+    nodes.forEach((node, i) => {
         if (typeof node == 'object' && isCorrectTag(node)) {
-            append(output, [node.tag, getType(node)], getContent(node));
+            output.push({
+                id: typeof node.attrs !== 'undefined' && node.attrs.id || `__one_loader_internal__part-${i}`,
+                tag: node.tag,
+                mimeType: getType(node),
+                content: getContent(node),
+            })
         }
     });
-
     return output;
-}
-
-/**
- * Add property of given path to the object
- *
- * @param {object} object
- * @param {array} path
- * @param {string} value
- */
-function append(object, path, value) {
-    set(object, path, get(object, path, '') + `\r\n${value}`);
 }
 
 /**
@@ -66,14 +55,13 @@ function getType(node) {
  * @returns {boolean}
  */
 function isCorrectTag(node) {
-    return node.tag === 'script' || node.tag === 'style';
+    return node.tag === 'script' || node.tag === 'style' || node.tag === 'template';
 }
 
 /*
  * Export private functions for testing purposes
  */
 if (process.env.NODE_ENV === 'test') {
-    module.exports.append = append;
     module.exports.getContent = getContent;
     module.exports.getType = getType;
     module.exports.isCorrectTag = isCorrectTag;

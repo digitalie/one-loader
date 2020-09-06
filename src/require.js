@@ -1,26 +1,41 @@
 const loaderUtils = require('loader-utils');
 
 /**
- * Return full require() statement for given resource and type
+ * Return full require() statement for the first script tag which is used as the component part
  *
  * @param {object} context
+ * @param {object} part
  * @param {object} options
- * @param {string} tag
- * @param {string} type
  * @param {string} resource
  * @returns {string}
  */
-function getRequire(context, options, tag, type, resource) {
-    const loaders = normalizeLoaders(options.map[type]);
-    const selectLoader = require.resolve('./loader.js');
+function getRequirePrimary(context, part, options, resource) {
+    const fileContentPartLoader = require.resolve('./partLoaderPrimaryScript.js');
+    const loaders = normalizeLoaders(options.map[part.mimeType]);
     const request = {
-        tag,
-        type,
+        id: part.id,
         options
     };
-    const url = loaderUtils.stringifyRequest(context, `!${loaders}!${selectLoader}?${JSON.stringify(request)}!${resource}`)
-    const prefix = tag === 'script' ? 'module.exports = ' : 'const $style = ';
-    return `${prefix}require(${url});\r\n`;
+    const url = loaderUtils.stringifyRequest(context, `!${loaders}!${fileContentPartLoader}?${JSON.stringify(request)}!${resource}`);
+    return `require(${url});\r\n`;
+}
+/**
+ * Return full require() statement for given resource and type
+ *
+ * @param {object} context
+ * @param {object} part
+ * @param {object} options
+ * @param {string} resource
+ * @returns {string}
+ */
+function getRequireAdditional(context, part, options, resource) {
+    const fileContentPartLoader = require.resolve('./partLoaderAdditional.js');
+    const loaders = normalizeLoaders(options.map[part.mimeType]);
+    const request = {
+        id: part.id,
+    };
+    const url = loaderUtils.stringifyRequest(context, `!${loaders}!${fileContentPartLoader}?${JSON.stringify(request)}!${resource}`)
+    return `require(${url});\r\n`;
 }
 
 /**
@@ -47,7 +62,7 @@ function stringifyLoaders(loaders) {
     }).join('!')
 }
 
-module.exports =  { getRequire };
+module.exports =  { getRequirePrimary, getRequireAdditional };
 
 /*
  * Export private functions for testing purposes
