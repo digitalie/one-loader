@@ -13,6 +13,8 @@
 A webpack loader to enable single-file React components.
 Inspired by `vue-loader`.
 
+No databases, no programming, no headaches. A simple javascript shopping cart that you can setup in minutes. It's lightweight, fast, simple to use, and completely customizable. All you need to know is basic HTML.
+
 ## Features
 
 * CSS and JavaScript code co-located in a single `.one` file (extension is configurable)
@@ -95,7 +97,6 @@ The `type` property can be used to assign custom types to `<style>` and `<script
 
 </script>
 ```
-
 There are no restrictions on type naming, so any string will work, however descriptive values are recommended.
 
 ## Known issues
@@ -145,7 +146,6 @@ This will work:
     }
 }
 ```
-
 
 ## License
 
