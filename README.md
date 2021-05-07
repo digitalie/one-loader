@@ -10,12 +10,15 @@
 
 # One Loader
 
-A webpack loader to enable single-file React components.
-Inspired by `vue-loader`.
+A webpack loader to enable single-file components, inspired by `vue-loader`.  
+  
+Originally it was built for react, but will work for almost any type of content.  
+In fact, if you wanted to, you could even use it for php, html and css using file-loaders without any javascript part.
+
 
 ## Features
 
-* CSS and JavaScript code co-located in a single `.one` file (extension is configurable)
+* CSS, JavaScript code and other parts co-located in a single `.one` file (extension is configurable)
 * Configurable loaders for JavaScript and CSS
 * Support for scoped styles through CSS Modules (using `css-loader`)
 

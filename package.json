@@ -31,10 +31,8 @@
     "jest": "^26.4.1"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "loader-utils": "^2.0.0",
-    "lodash.defaultsdeep": "^4.6.1",
-    "lodash.get": "^4.4.2",
-    "lodash.set": "^4.3.2",
-    "posthtml-parser": "^0.4.2"
+    "lodash.defaultsdeep": "^4.6.1"
   }
 }
