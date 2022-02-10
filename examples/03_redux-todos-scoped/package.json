@@ -17,7 +17,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.1",
     "mini-css-extract-plugin": "^0.10.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "one-loader": "github:digitalie/one-loader",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
